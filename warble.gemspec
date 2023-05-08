@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   spec.add_development_dependency "minitest", "5.17.0"
+  spec.add_development_dependency "pry-byebug"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

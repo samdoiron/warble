@@ -13,12 +13,17 @@ module Warble
         low_bits = byte[0..6]
         result |= low_bits << (byte_count * 7)
 
-        break unless high_bit == 1
-
         byte_count += 1
+
+        break unless high_bit == 1
       end
       
       [result, byte_count]
+    end
+
+    def decode_signed(binary)
+      result, byte_count = decode_unsigned(binary)
+      [-(-result & (2**result.bit_length)-1), byte_count]
     end
 
     def encode_unsigned(number)

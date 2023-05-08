@@ -19,8 +19,9 @@ class TestLeb128 < Minitest::Test
 
   def test_decode_unsigned_single_byte
     (0..127).each do |byte|
-      encoded, _ = Warble::Leb128.decode_unsigned(byte.chr)
+      encoded, bytes = Warble::Leb128.decode_unsigned(byte.chr)
       assert_equal byte, encoded
+      assert_equal 1, bytes
     end
   end
 
